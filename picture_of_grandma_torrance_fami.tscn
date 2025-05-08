@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://74278ql58si"]
+
+[ext_resource type="Texture2D" uid="uid://bm2g0k45daqfs" path="res://picture-of-grandma-torrance-fami.png" id="1_wo8o1"]
+
+[node name="Picture-of-grandma-torrance-fami" type="Sprite2D"]
+position = Vector2(549, 331)
+texture = ExtResource("1_wo8o1")
