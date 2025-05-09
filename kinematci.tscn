@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://di4wf2bgwx8hu"]
+
+[ext_resource type="Texture2D" uid="uid://14ypbi1ncv11" path="res://Stopsign.png" id="1_krbda"]
+[ext_resource type="Texture2D" uid="uid://bm2g0k45daqfs" path="res://picture-of-grandma-torrance-fami.png" id="1_qleqa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4upg"]
+size = Vector2(791, 276)
+
+[sub_resource type="GDScript" id="GDScript_krbda"]
+script/source = "extends CharacterBody2D
+
+const GRAVITY = 400.0
+const WALK_SPEED = 200
+
+func _physics_process(delta):
+	velocity.y += delta * GRAVITY
+
+	if Input.is_action_pressed(\"left\"):
+		velocity.x = -WALK_SPEED
+	elif Input.is_action_pressed(\"right\"):
+		velocity.x =  WALK_SPEED
+	else:
+		velocity.x = 0
+
+	# \"move_and_slide\" already takes delta time into account.
+	move_and_slide()
+# i have no clue what i'm doing
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oth31"]
+size = Vector2(58, 140)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(14, 20)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(75, 82)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(267.5, 476)
+shape = SubResource("RectangleShape2D_u4upg")
+metadata/_edit_group_ = true
+
+[node name="Stopsign" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(264, 487)
+scale = Vector2(0.49, 0.166875)
+texture = ExtResource("1_krbda")
+metadata/_edit_group_ = true
+
+[node name="Node" type="CharacterBody2D" parent="."]
+position = Vector2(75, 82)
+script = SubResource("GDScript_krbda")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node"]
+shape = SubResource("RectangleShape2D_oth31")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node"]
+position = Vector2(0, -5.96046e-08)
+scale = Vector2(0.0619565, 0.227162)
+texture = ExtResource("1_qleqa")

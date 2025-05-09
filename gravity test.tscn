@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://hetaggc828yc"]
+
+[ext_resource type="Texture2D" uid="uid://dy732o3rykb0j" path="res://icon.svg" id="1_i1va1"]
+[ext_resource type="Texture2D" uid="uid://bm2g0k45daqfs" path="res://picture-of-grandma-torrance-fami.png" id="2_otxkr"]
+
+[sub_resource type="GDScript" id="GDScript_otxkr"]
+script/source = "extends RigidBody2D
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1va1"]
+size = Vector2(134, 129)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otxkr"]
+size = Vector2(920, 613)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Node2D" type="RigidBody2D" parent="."]
+script = SubResource("GDScript_otxkr")
+
+[node name="Icon" type="Sprite2D" parent="Node2D"]
+position = Vector2(441, 78)
+texture = ExtResource("1_i1va1")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
+position = Vector2(441, 76.5)
+shape = SubResource("RectangleShape2D_i1va1")
+metadata/_edit_group_ = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(529, 566)
+disable_mode = 1
+collision_layer = 2
+
+[node name="Picture-of-grandma-torrance-fami" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-9, 1)
+texture = ExtResource("2_otxkr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-9, 2.5)
+shape = SubResource("RectangleShape2D_otxkr")
