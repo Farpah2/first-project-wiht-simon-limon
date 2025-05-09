@@ -1,7 +1,53 @@
-[gd_scene load_steps=2 format=3 uid="uid://74278ql58si"]
+[gd_scene load_steps=5 format=3 uid="uid://74278ql58si"]
 
-[ext_resource type="Texture2D" uid="uid://bm2g0k45daqfs" path="res://picture-of-grandma-torrance-fami.png" id="1_wo8o1"]
+[ext_resource type="Texture2D" uid="uid://14ypbi1ncv11" path="res://Stopsign.png" id="1_wo8o1"]
+[ext_resource type="Script" uid="uid://c6f8tyxuv6psf" path="res://sprite_2d.gd" id="2_asdml"]
 
-[node name="Picture-of-grandma-torrance-fami" type="Sprite2D"]
-position = Vector2(549, 331)
+[sub_resource type="GDScript" id="GDScript_asdml"]
+script/source = "extends CharacterBody2D
+
+@export var speed = 400
+
+func get_input():
+	var input_direction = Input.get_vector(\"left\", \"right\", \"up\", \"down\")
+	velocity = input_direction * speed
+
+func _physics_process(delta):
+	set_physics_process(true)
+	get_input()
+	move_and_slide()
+	const GRAVITY = 400.0
+
+	velocity.y += delta * GRAVITY
+	
+	var motion = velocity * delta
+	move_and_collide(motion)
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n6ahg"]
+radius = 89.0
+height = 178.0
+
+[node name="Icon" type="Node2D"]
+position = Vector2(391, 509)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(0, 1)
+script = SubResource("GDScript_asdml")
+speed = 200
+
+[node name="RigidBody2D" type="RigidBody2D" parent="CharacterBody2D"]
+position = Vector2(-2, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(109, -386)
+scale = Vector2(0.073125, 0.0787501)
 texture = ExtResource("1_wo8o1")
+script = ExtResource("2_asdml")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(110, -386)
+shape = SubResource("CapsuleShape2D_n6ahg")
+metadata/_edit_group_ = true
