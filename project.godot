@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="First Ever Project with simon"
+run/main_scene="uid://bb3tb3xjaejgl"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
