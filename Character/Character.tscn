@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://c0365gd1gqivg"]
+
+[ext_resource type="Script" uid="uid://temuqyl87gpe" path="res://Character/character.gd" id="1_ptld2"]
+[ext_resource type="Texture2D" uid="uid://deplgtanxsukx" path="res://Character/Red_cube.jpg" id="2_vbi5m"]
+[ext_resource type="Texture2D" uid="uid://dtm6voe056ty3" path="res://Environment/Black_cube.jpg" id="3_vbi5m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aetg1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8t6m"]
+size = Vector2(1443, 169)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_vbi5m"]
+a = Vector2(-717.943, -79.3005)
+b = Vector2(734.724, -81.725)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Character" type="CharacterBody2D" parent="."]
+script = ExtResource("1_ptld2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Character"]
+position = Vector2(78, 63)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_vbi5m")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Character"]
+position = Vector2(78, 63)
+scale = Vector2(3.7, 3.7)
+shape = SubResource("RectangleShape2D_aetg1")
+metadata/_edit_group_ = true
+
+[node name="Environment" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment"]
+position = Vector2(578, 619)
+scale = Vector2(1.436, 0.162)
+texture = ExtResource("3_vbi5m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment"]
+position = Vector2(576.5, 621.5)
+shape = SubResource("RectangleShape2D_a8t6m")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Environment"]
+position = Vector2(882.257, 485.294)
+rotation = -0.192967
+scale = Vector2(1.05055, 0.201892)
+skew = -1.31279
+texture = ExtResource("3_vbi5m")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Environment"]
+position = Vector2(880.103, 485.699)
+rotation = -0.192967
+scale = Vector2(0.731578, 1.24625)
+skew = -1.31279
+shape = SubResource("SegmentShape2D_vbi5m")
+one_way_collision_margin = 0.0
