@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://bb3tb3xjaejgl"]
+
+[ext_resource type="Texture2D" uid="uid://14byvuf2vmxs" path="res://black.jpg" id="1_c7s6e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wijl4"]
+size = Vector2(896, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e0an3"]
+size = Vector2(384, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5pve"]
+size = Vector2(259.986, 9.42395)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_urblq"]
+size = Vector2(260.71, 10.8426)
+
+[node name="Map" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="baseplate sprite" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(576, 448)
+scale = Vector2(4.68848, 0.723464)
+texture = ExtResource("1_c7s6e")
+metadata/_edit_group_ = true
+
+[node name="baseplate" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(576, 448)
+shape = SubResource("RectangleShape2D_wijl4")
+metadata/_edit_group_ = true
+
+[node name="middle platform sprite" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(576.25, 255.75)
+scale = Vector2(2.00785, 0.108939)
+texture = ExtResource("1_c7s6e")
+metadata/_edit_group_ = true
+
+[node name="middle platform2" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(576, 256)
+shape = SubResource("RectangleShape2D_e0an3")
+metadata/_edit_group_ = true
+
+[node name="right platform sprite" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(934.797, 191.896)
+rotation = -0.314159
+scale = Vector2(1.36282, 0.0581871)
+texture = ExtResource("1_c7s6e")
+metadata/_edit_group_ = true
+
+[node name="right platform" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(934.886, 191.916)
+rotation = -0.314159
+shape = SubResource("RectangleShape2D_p5pve")
+metadata/_edit_group_ = true
+
+[node name="left platform sprite" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(232.554, 183.67)
+rotation = 0.314159
+scale = Vector2(1.36655, 0.0660497)
+texture = ExtResource("1_c7s6e")
+metadata/_edit_group_ = true
+
+[node name="left platform" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(232, 184)
+rotation = 0.314159
+shape = SubResource("RectangleShape2D_urblq")
+metadata/_edit_group_ = true

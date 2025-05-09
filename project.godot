@@ -11,7 +11,6 @@ config_version=5
 [application]
 
 config/name="First Ever Project with simon"
-run/main_scene="uid://74278ql58si"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
